@@ -34,7 +34,7 @@ public class JsonMessageSenderService {
 
         }  catch (Exception ex) {
             log.error("Client exception: " + ex.getMessage());
-            ex.printStackTrace();
+            //ex.printStackTrace();
         }
     }
 }
