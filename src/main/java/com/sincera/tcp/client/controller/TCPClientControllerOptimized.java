@@ -21,6 +21,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/tcp/client")
+@Async
 public class TCPClientControllerOptimized {
 
     private static final Logger log = LoggerFactory.getLogger(TCPClientControllerOptimized.class);
@@ -41,7 +42,9 @@ public class TCPClientControllerOptimized {
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> postTcpMessages(@RequestBody String payload) {
         log.info("Received payload: {}", payload);
+        log.info("In time -> ");
         processPayloadAsync(payload);
+        
         return ResponseEntity.ok("success");
     }
 
