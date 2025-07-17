@@ -41,8 +41,8 @@ public class TCPClientControllerOptimized {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> postTcpMessages(@RequestBody String payload) {
-        log.info("Received payload: {}", payload);
-        log.info("In time -> ");
+        //log.info("Received payload: {}", payload);
+        log.info("In time -----> {}", System.currentTimeMillis());
         processPayloadAsync(payload);
         
         return ResponseEntity.ok("success");
@@ -68,11 +68,11 @@ public class TCPClientControllerOptimized {
                 }
             }
 
-            log.info("Processed message: {}", newJsonObject);
-            service.startSendingMessages(newJsonObject.toString());
+            log.info("Processed message:\n {}", newJsonObject);
+            service.sendMessageAsync(newJsonObject.toString());
             log.info("Message sent successfully.");
         } catch (Exception e) {
-            log.error("Failed to process payload: {}", e.getMessage());
+            log.error("Failed to process payload: {} \nError: {}", payload, e.getMessage());
         }
     }
 }
