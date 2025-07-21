@@ -68,9 +68,9 @@ public class TCPClientControllerOptimized {
                 }
             }
 
-            log.info("Processed message:\n {}", newJsonObject);
+            //log.info("Processed message:\n {}", newJsonObject);
             service.sendMessageAsync(newJsonObject.toString());
-            log.info("Message sent successfully.");
+            //log.info("Message sent successfully.");
         } catch (Exception e) {
             log.error("Failed to process payload: {} \nError: {}", payload, e.getMessage());
         }
