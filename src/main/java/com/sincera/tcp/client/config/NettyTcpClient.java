@@ -22,10 +22,10 @@ public class NettyTcpClient {
     private static final Logger log = LoggerFactory.getLogger(NettyTcpClient.class);
 
     @Value("${tcp.server.host}")
-    private static String HOST;
+    private String HOST;
 
     @Value("${tcp.server.port}")
-    private static int PORT;
+    private int PORT;
 
     private EventLoopGroup group;
     private Channel channel;
